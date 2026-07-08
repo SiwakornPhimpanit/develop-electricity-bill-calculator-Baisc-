@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>คำนวณค่าไฟฟ้า</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero">
+        <p class="eyebrow">Electricity Bill Calculator</p>
+        <h1>คำนวณค่าไฟฟ้า</h1>
+        <p>
+          กรอกจำนวนหน่วยไฟฟ้าที่ใช้ ระบบจะคำนวณค่าไฟฐาน ค่า Ft ค่าบริการ VAT
+          และแสดงรายละเอียดตามขั้นบันไดให้ทันที
+        </p>
+      </section>
+
+      <section class="grid">
+        <form class="card form-card" id="billForm">
+          <label>
+            จำนวนหน่วยไฟฟ้าที่ใช้ (kWh)
+            <input id="units" type="number" min="0" step="0.01" placeholder="เช่น 250" required />
+          </label>
+
+          <label>
+            ค่า Ft ต่อหน่วย (บาท)
+            <input id="ftRate" type="number" step="0.0001" value="0.3972" />
+          </label>
+
+          <label>
+            ค่าบริการรายเดือน (บาท)
+            <input id="serviceFee" type="number" min="0" step="0.01" value="38.22" />
+          </label>
+
+          <label>
+            VAT (%)
+            <input id="vatRate" type="number" min="0" step="0.01" value="7" />
+          </label>
+
+          <div class="actions">
+            <button type="submit">คำนวณ</button>
+            <button class="muted-button" id="resetButton" type="button">ล้างค่า</button>
+          </div>
+        </form>
+
+        <aside class="card result-card" aria-live="polite">
+          <span>ยอดที่ต้องชำระโดยประมาณ</span>
+          <output id="totalAmount">0.00 บาท</output>
+
+          <div class="summary">
+            <p>ค่าไฟฐาน <strong id="baseAmount">0.00</strong></p>
+            <p>ค่า Ft <strong id="ftAmount">0.00</strong></p>
+            <p>ค่าบริการ <strong id="serviceAmount">0.00</strong></p>
+            <p>VAT <strong id="vatAmount">0.00</strong></p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="card detail-card">
+        <div class="detail-head">
+          <h2>รายละเอียดค่าไฟตามขั้นบันได</h2>
+          <span id="usedUnits">0 kWh</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ช่วงหน่วย</th>
+                <th>หน่วยที่คิด</th>
+                <th>อัตรา / หน่วย</th>
+                <th>เป็นเงิน</th>
+              </tr>
+            </thead>
+            <tbody id="breakdownBody">
+              <tr>
+                <td colspan="4" class="empty">กรอกจำนวนหน่วยแล้วกดคำนวณ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
