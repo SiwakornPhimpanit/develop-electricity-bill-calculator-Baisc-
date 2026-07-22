@@ -1,7 +1,7 @@
 :root {
   --bg: #eef3f7;
   --surface: #ffffff;
-  --ink: #2fa73f;
+  --ink: #17202a;
   --muted: #637083;
   --line: #d8e0e8;
   --primary: #1677ff;
@@ -130,7 +130,7 @@ button {
 }
 
 .result-card {
-  background: linear-gradient(145deg, #152238, #233b5c);
+  background: linear-gradient(145deg, #48a810, #1d4a88);
   color: white;
 }
 
